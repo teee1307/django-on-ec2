@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+files:
+  - source: .
+    destination: /home/ec2-user/django-on-ec2/
+    overwrite: true
+file_exists_behavior: OVERWRITE
+branch_config:
+    wip\/.*: ~ 
+    main:
+        deploymentGroupName: asg-demo-DG
+        deploymentGroupConfig:
+            serviceRoleArn: arn:aws:iam::637423485347:role/awscodedeployroleforCD
